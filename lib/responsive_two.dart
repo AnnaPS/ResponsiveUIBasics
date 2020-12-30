@@ -22,8 +22,11 @@ class ResponsiveTwoPage extends StatelessWidget {
     );
   }
 
+  bool _isMobileLayout(double shortedSide) => shortedSide < 600;
   @override
   Widget build(BuildContext context) {
+    final shortedSize = MediaQuery.of(context).size.shortestSide;
+    final isMobile = _isMobileLayout(shortedSize);
     return Scaffold(
       appBar: AppBar(
         title: Text('Multilayout'),
